@@ -1,0 +1,21 @@
+.item {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.counter__button {
+  border: black 1px solid;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
