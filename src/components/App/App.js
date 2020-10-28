@@ -1,6 +1,7 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import CartItem from "../CartItem/CartItem";
 import List from "../List/List";
+import Resize from "../Resize/Resize";
 
 function App() {
   const items = [
@@ -20,32 +21,17 @@ function App() {
       name: "hello",
     },
   ];
-  const articles = [
-    {
-      id: 1,
-      title: "Article 1",
-      category: "News",
-      published: true,
-      content: "Lorem ipsum dolor sit amet.",
-    },
-    {
-      id: 2,
-      title: "Article 2",
-      category: "News",
-      published: false,
-      content: "budumbudm testest",
-    },
-    {
-      id: 3,
-      title: "Article 3",
-      category: "Blog",
-      published: true,
-      content: "Lorem ipsum dolor sit amet.",
-    },
-  ];
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/articles")
+      .then((res) => res.json())
+      .then((data) => setArticles(data));
+  }, []);
 
   return (
     <div>
+      <Resize />
       <List articles={articles} />
       <CartItem item={items[0]} />
     </div>
