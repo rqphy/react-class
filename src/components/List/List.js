@@ -7,7 +7,7 @@ function List(props) {
   return (
     <div>
       {articles.map((art) => (
-        <Article article={art} foo="bar" />
+        <Article article={art} foo="bar" key={art.id} />
       ))}
     </div>
   );

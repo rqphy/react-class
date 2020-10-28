@@ -11,14 +11,14 @@ function App() {
       content: "Lorem ipsum dolor sit amet.",
     },
     {
-      id: 1,
+      id: 2,
       title: "Article 2",
       category: "News",
       published: false,
       content: "budumbudm testest",
     },
     {
-      id: 1,
+      id: 3,
       title: "Article 3",
       category: "Blog",
       published: true,
