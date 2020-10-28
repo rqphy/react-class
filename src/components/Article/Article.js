@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Article.css";
+import classnames from "classnames";
 
 function Article(props) {
   const { article, foo } = props;
@@ -14,7 +15,7 @@ function Article(props) {
 
   return (
     <div
-      className={"Article " + (selected ? "Article--selected" : "")}
+      className={classnames("Article", { "Article--selected": selected })}
       onClick={handleClick}
     >
       <div className="title">{title}</div>
