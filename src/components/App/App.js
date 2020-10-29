@@ -5,7 +5,7 @@ import Resize from "../Resize/Resize";
 import Title from "../Title/Title";
 import useArticles from "../../hooks/useArticles/useArticles";
 import useCategories from "../../hooks/useCategories/useCategories";
-import Filters from "../filters/filters";
+import Filters from "../Filters/Filters";
 
 function App() {
   const articles = useArticles();
@@ -33,22 +33,48 @@ function App() {
     setTitle("tata");
   }
 
-  const [titleFilter, setTitleFilter] = useState("");
+  // const [titleFilter, setTitleFilter] = useState("");
+  // const [categoryFilter, setCategoryFilter] = useState("");
 
-  function handleChange(e) {
-    setTitleFilter(e.target.value);
+  // function handleTitleChange(e) {
+  //   setTitleFilter(e.target.value);
+  // }
+
+  // function handleCategoryChange(e) {
+  //   setCategoryFilter(e.target.value);
+  //   console.log(e.target.value);
+  // }
+
+  const [filters, setFilters] = useState({
+    title: "",
+    category: "",
+  });
+
+  function handleFilterChange(e) {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
   }
 
-  const filteredArticles = articles.filter((art) =>
-    art.title.includes(titleFilter)
-  );
+  const filteredArticles = articles
+    .filter((art) => art.title.includes(filters.title))
+    .filter(
+      (art) =>
+        filters.category === "" || art.category === Number(filters.category)
+    );
 
   return (
     <div>
       <Title title={title} />
       <button onClick={handleClick}>Change title</button>
       <Resize />
-      <Filters title={titleFilter} handleChange={handleChange} />
+      <Filters
+        categories={categories}
+        category={filters.category}
+        title={filters.title}
+        handleFilterChange={handleFilterChange}
+      />
       <List articles={filteredArticles} categories={categories} />
       <CartItem item={items[0]} />
     </div>
