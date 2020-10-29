@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CartItem from "../CartItem/CartItem";
 import List from "../List/List";
 import Resize from "../Resize/Resize";
@@ -32,18 +32,6 @@ function App() {
   function handleClick() {
     setTitle("tata");
   }
-
-  // const [titleFilter, setTitleFilter] = useState("");
-  // const [categoryFilter, setCategoryFilter] = useState("");
-
-  // function handleTitleChange(e) {
-  //   setTitleFilter(e.target.value);
-  // }
-
-  // function handleCategoryChange(e) {
-  //   setCategoryFilter(e.target.value);
-  //   console.log(e.target.value);
-  // }
 
   const [filters, setFilters] = useState({
     title: "",
