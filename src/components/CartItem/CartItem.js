@@ -1,5 +1,4 @@
 import "./CartItem.css";
-import { useState } from "react";
 
 function CartItem(props) {
   const { product, updateQuantity } = props;
