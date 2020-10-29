@@ -3,10 +3,14 @@ import "./Article.css";
 import classnames from "classnames";
 
 function Article(props) {
-  const { article, foo } = props;
-  const { category, published, title } = article;
+  const { article, categories } = props;
+  const { category: categoryId, published, title } = article;
   const [selected, setSelected] = useState(false);
-  console.log(selected);
+
+  // console.log(category, categories);
+
+  const category = categories.find((cat) => cat.id === categoryId);
+  // console.log(category);
 
   function handleClick() {
     console.log("click", article.id);
@@ -19,9 +23,8 @@ function Article(props) {
       onClick={handleClick}
     >
       <div className="title">{title}</div>
-      <div>{category}</div>
+      <div>{category ? category.title : categoryId}</div>
       <div>{published ? "Published" : "Draft"}</div>
-      <div>{foo}</div>
     </div>
   );
 }

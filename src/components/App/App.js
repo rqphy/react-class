@@ -24,6 +24,7 @@ function App() {
   ];
   const [articles, setArticles] = useState([]);
   const [title, setTitle] = useState("toto");
+  const [categories, setCategories] = useState([]);
 
   function handleClick() {
     setTitle("tata");
@@ -35,12 +36,18 @@ function App() {
       .then((data) => setArticles(data));
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:3001/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
   return (
     <div>
       <Title title={title} />
       <button onClick={handleClick}>Change title</button>
       <Resize />
-      <List articles={articles} />
+      <List articles={articles} categories={categories} />
       <CartItem item={items[0]} />
     </div>
   );

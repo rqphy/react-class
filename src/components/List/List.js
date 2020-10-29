@@ -2,12 +2,12 @@ import React from "react";
 import Article from "../Article/Article";
 
 function List(props) {
-  const { articles } = props;
+  const { articles, categories } = props;
 
   return (
     <div>
       {articles.map((art) => (
-        <Article article={art} foo="bar" key={art.id} />
+        <Article article={art} categories={categories} key={art.id} />
       ))}
     </div>
   );
