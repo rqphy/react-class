@@ -33,11 +33,15 @@ function App() {
     setTitle("tata");
   }
 
-  const [titleFilter, setTitleFilter] = useState("foo");
+  const [titleFilter, setTitleFilter] = useState("");
 
   function handleChange(e) {
     setTitleFilter(e.target.value);
   }
+
+  const filteredArticles = articles.filter((art) =>
+    art.title.includes(titleFilter)
+  );
 
   return (
     <div>
@@ -45,7 +49,7 @@ function App() {
       <button onClick={handleClick}>Change title</button>
       <Resize />
       <Filters title={titleFilter} handleChange={handleChange} />
-      <List articles={articles} categories={categories} />
+      <List articles={filteredArticles} categories={categories} />
       <CartItem item={items[0]} />
     </div>
   );
