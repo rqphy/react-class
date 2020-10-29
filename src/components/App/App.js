@@ -6,6 +6,7 @@ import Title from "../Title/Title";
 import useArticles from "../../hooks/useArticles/useArticles";
 import useCategories from "../../hooks/useCategories/useCategories";
 import Filters from "../Filters/Filters";
+import Container from "../Container/Container";
 
 function App() {
   const articles = useArticles();
@@ -64,14 +65,16 @@ function App() {
       <Title title={title} />
       <button onClick={handleClick}>Change title</button>
       <Resize />
-      <Filters
-        categories={categories}
-        category={filters.category}
-        title={filters.title}
-        handleFilterChange={handleFilterChange}
-        published={filters.published}
-      />
-      <List articles={filteredArticles} categories={categories} />
+      <Container>
+        <Filters
+          categories={categories}
+          category={filters.category}
+          title={filters.title}
+          handleFilterChange={handleFilterChange}
+          published={filters.published}
+        />
+        <List articles={filteredArticles} categories={categories} />
+      </Container>
       <CartItem item={items[0]} />
     </div>
   );
