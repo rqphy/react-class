@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
+import { getCategories } from "../../services/categories/categories";
 
 function useCategories() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
+    getCategories().then((data) => setCategories(data));
+  }, [setCategories]);
   return categories;
 }
 
