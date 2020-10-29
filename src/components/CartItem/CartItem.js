@@ -2,44 +2,29 @@ import "./CartItem.css";
 import { useState } from "react";
 
 function CartItem(props) {
-  const { item } = props;
-  const { name, price } = item;
-  let [counter, setCounter] = useState(1);
-  let [total, setTotal] = useState(price);
+  const { product, updateQuantity } = props;
+  const { id, name, price, quantity } = product;
+  const total = quantity * price;
 
-  function editTotal() {
-    setTotal((total = price * counter));
+  function handleMinus() {
+    if (quantity > 0) {
+      updateQuantity(id, quantity - 1);
+    }
   }
 
-  function editQuantity(value) {
-    if (value === "add") {
-      setCounter(++counter);
-      editTotal();
-    } else if (value === "remove" && counter > 0) {
-      setCounter(--counter);
-      editTotal();
-    }
+  function handlePlus() {
+    updateQuantity(id, quantity + 1);
   }
 
   return (
     <div className="item">
       <div>{name}</div>
       <div className="counter">
-        <div>{counter}</div>
-        <div
-          className="counter__button"
-          onClick={() => {
-            editQuantity("add");
-          }}
-        >
+        <div>{quantity}</div>
+        <div className="counter__button" onClick={handlePlus}>
           +
         </div>
-        <div
-          className="counter__button"
-          onClick={() => {
-            editQuantity("remove");
-          }}
-        >
+        <div className="counter__button" onClick={handleMinus}>
           -
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CartItem from "../CartItem/CartItem";
 import List from "../List/List";
 import Resize from "../Resize/Resize";
 import Title from "../Title/Title";
@@ -7,27 +6,12 @@ import useArticles from "../../hooks/useArticles/useArticles";
 import useCategories from "../../hooks/useCategories/useCategories";
 import Filters from "../Filters/Filters";
 import Container from "../Container/Container";
+import Cart from "../Cart/Cart";
 
 function App() {
   const articles = useArticles();
   const categories = useCategories();
-  const items = [
-    {
-      id: 1,
-      price: 12,
-      name: "pizza",
-    },
-    {
-      id: 2,
-      price: 200,
-      name: "phone",
-    },
-    {
-      id: 3,
-      price: 25,
-      name: "hello",
-    },
-  ];
+
   const [title, setTitle] = useState("toto");
 
   function handleClick() {
@@ -75,7 +59,7 @@ function App() {
         />
         <List articles={filteredArticles} categories={categories} />
       </Container>
-      <CartItem item={items[0]} />
+      <Cart />
     </div>
   );
 }
