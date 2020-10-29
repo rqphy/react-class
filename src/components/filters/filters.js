@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-function Filters() {
-  const [title, setTitle] = useState("foo");
-
-  function handleChange(e) {
-    setTitle(e.target.value);
-  }
+function Filters(props) {
+  const { title, handleChange } = props;
 
   return (
     <div>

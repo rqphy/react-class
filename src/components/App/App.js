@@ -33,12 +33,18 @@ function App() {
     setTitle("tata");
   }
 
+  const [titleFilter, setTitleFilter] = useState("foo");
+
+  function handleChange(e) {
+    setTitleFilter(e.target.value);
+  }
+
   return (
     <div>
       <Title title={title} />
       <button onClick={handleClick}>Change title</button>
       <Resize />
-      <Filters />
+      <Filters title={titleFilter} handleChange={handleChange} />
       <List articles={articles} categories={categories} />
       <CartItem item={items[0]} />
     </div>
