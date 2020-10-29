@@ -5,6 +5,7 @@ import Resize from "../Resize/Resize";
 import Title from "../Title/Title";
 import useArticles from "../../hooks/useArticles/useArticles";
 import useCategories from "../../hooks/useCategories/useCategories";
+import Filters from "../filters/filters";
 
 function App() {
   const articles = useArticles();
@@ -37,6 +38,7 @@ function App() {
       <Title title={title} />
       <button onClick={handleClick}>Change title</button>
       <Resize />
+      <Filters />
       <List articles={articles} categories={categories} />
       <CartItem item={items[0]} />
     </div>
