@@ -1,5 +1,5 @@
 function Filters(props) {
-  const { categories, category, title, handleFilterChange } = props;
+  const { categories, category, title, handleFilterChange, published } = props;
 
   return (
     <div>
@@ -17,6 +17,36 @@ function Filters(props) {
           </option>
         ))}
       </select>
+      <label>
+        All :
+        <input
+          type="radio"
+          name="published"
+          value=""
+          onChange={handleFilterChange}
+          checked={published === ""}
+        />
+      </label>
+      <label>
+        Published :
+        <input
+          type="radio"
+          name="published"
+          value="published"
+          onChange={handleFilterChange}
+          checked={published === "published"}
+        />
+      </label>
+      <label>
+        Draft :
+        <input
+          type="radio"
+          name="published"
+          value="draft"
+          onChange={handleFilterChange}
+          checked={published === "draft"}
+        />
+      </label>
     </div>
   );
 }

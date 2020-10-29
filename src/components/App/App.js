@@ -48,6 +48,7 @@ function App() {
   const [filters, setFilters] = useState({
     title: "",
     category: "",
+    published: "",
   });
 
   function handleFilterChange(e) {
@@ -62,6 +63,12 @@ function App() {
     .filter(
       (art) =>
         filters.category === "" || art.category === Number(filters.category)
+    )
+    .filter(
+      (art) =>
+        filters.published === "" ||
+        (art.published === true && filters.published === "published") ||
+        (art.published === false && filters.published === "draft")
     );
 
   return (
@@ -74,6 +81,7 @@ function App() {
         category={filters.category}
         title={filters.title}
         handleFilterChange={handleFilterChange}
+        published={filters.published}
       />
       <List articles={filteredArticles} categories={categories} />
       <CartItem item={items[0]} />
