@@ -1,10 +1,12 @@
-import ArticlesPage from "../ArticlesPage/ArticlesPage";
 import { BrowserRouter, Route } from "react-router-dom";
+import ArticlesPage from "../ArticlesPage/ArticlesPage";
+import ArticlePage from "../ArticlePage/ArticlePage";
 
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/" component={ArticlesPage} />
+      <Route exact path="/" component={ArticlesPage} />
+      <Route exact path="/article" component={ArticlePage} />
     </BrowserRouter>
   );
 }
