@@ -8,10 +8,7 @@ function Article(props) {
   const { category: categoryId, published, title } = article;
   const [selected, setSelected] = useState(false);
 
-  // console.log(category, categories);
-
   const category = categories.find((cat) => cat.id === categoryId);
-  // console.log(category);
 
   function handleClick() {
     console.log("click", article.id);
