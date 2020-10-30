@@ -6,6 +6,7 @@ import {
   getArticle,
   updateArticle,
 } from "../../services/articles/articles";
+import useCategories from "../../hooks/useCategories/useCategories";
 
 import Title from "../Title/Title";
 
@@ -13,9 +14,11 @@ function ArticlePage(props) {
   const id = props.match.params.id;
 
   const [article, setArticle] = useState({
+    category: "",
     title: "",
   });
   const history = useHistory();
+  const categories = useCategories();
 
   useEffect(() => {
     if (id) {
@@ -43,16 +46,33 @@ function ArticlePage(props) {
     <div>
       <Title title="Add new article" />
       <form onSubmit={handleSubmit}>
-        <label>
-          Titre:
-          <input
-            name="title"
-            type="text"
-            value={article.title}
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" />
+        <div>
+          <label>
+            Titre:
+            <input
+              name="title"
+              type="text"
+              value={article.title}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Category:
+            <select
+              name="category"
+              value={article.category}
+              onChange={handleChange}
+            >
+              <option value=""></option>
+              {categories.map((cat) => (
+                <option value={cat.id} key={cat.id}>
+                  {cat.title}
+                </option>
+              ))}
+            </select>
+          </label>
+          <input type="submit" />
+        </div>
       </form>
     </div>
   );

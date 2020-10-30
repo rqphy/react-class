@@ -14,7 +14,10 @@ export function createArticle(article) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(article),
+    body: JSON.stringify({
+      ...article,
+      category: Number(article.category),
+    }),
   }).then((res) => res.json());
 }
 
@@ -24,6 +27,9 @@ export function updateArticle(article) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(article),
+    body: JSON.stringify({
+      ...article,
+      category: Number(article.category),
+    }),
   }).then((res) => res.json());
 }
