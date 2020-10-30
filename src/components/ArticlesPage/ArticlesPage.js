@@ -8,7 +8,7 @@ import Filters from "../Filters/Filters";
 import Container from "../Container/Container";
 import Cart from "../Cart/Cart";
 
-function App() {
+function ArticlesPage() {
   const articles = useArticles();
   const categories = useCategories();
 
@@ -64,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default ArticlesPage;
