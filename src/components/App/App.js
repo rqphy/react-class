@@ -2,10 +2,12 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import ArticlesPage from "../ArticlesPage/ArticlesPage";
 import ArticlePage from "../ArticlePage/ArticlePage";
 import Cart from "../Cart/Cart";
+import Header from "../Header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route exact path="/" component={ArticlesPage} />
         <Route exact path="/article" component={ArticlePage} />
