@@ -4,15 +4,13 @@ import classnames from "classnames";
 import { Link } from "react-router-dom";
 
 function Article(props) {
-  const { article, categories } = props;
-  const { category: categoryId, published, title } = article;
-  const [selected, setSelected] = useState(false);
+  const { article, categories, updateSelected, selected } = props;
+  const { category: categoryId, published, title, id } = article;
 
   const category = categories.find((cat) => cat.id === categoryId);
 
   function handleClick() {
-    console.log("click", article.id);
-    setSelected(!selected);
+    updateSelected(id);
   }
 
   return (
