@@ -1,10 +1,11 @@
 import ArticlesPage from "../ArticlesPage/ArticlesPage";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <ArticlesPage />
-    </div>
+    <BrowserRouter>
+      <Route path="/" component={ArticlesPage} />
+    </BrowserRouter>
   );
 }
 export default App;
