@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { deleteArticle, getArticles } from "../../services/articles/articles";
+
 import List from "../List/List";
 import Resize from "../Resize/Resize";
 import Title from "../Title/Title";
@@ -11,7 +13,7 @@ import Container from "../Container/Container";
 import Cart from "../Cart/Cart";
 
 function ArticlesPage() {
-  const articles = useArticles();
+  const [articles, setArticles] = useArticles();
   const categories = useCategories();
 
   const [title, setTitle] = useState("toto");
@@ -30,6 +32,13 @@ function ArticlesPage() {
     setFilters({
       ...filters,
       [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleArticleDeleted(id) {
+    deleteArticle(id).then(() => {
+      const data = articles.filter((article) => article.id !== id);
+      setArticles(data);
     });
   }
 
@@ -60,7 +69,11 @@ function ArticlesPage() {
           handleFilterChange={handleFilterChange}
           published={filters.published}
         />
-        <List articles={filteredArticles} categories={categories} />
+        <List
+          articles={filteredArticles}
+          categories={categories}
+          deleteArticle={handleArticleDeleted}
+        />
       </Container>
       <Cart />
     </div>

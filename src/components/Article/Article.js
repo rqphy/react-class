@@ -1,16 +1,27 @@
-import { useState } from "react";
-import "./Article.css";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 
+import "./Article.css";
+
 function Article(props) {
-  const { article, categories, updateSelected, selected } = props;
-  const { category: categoryId, published, title, id } = article;
+  const {
+    article,
+    categories,
+    updateSelected,
+    selected,
+    deleteArticle,
+  } = props;
+  const { category: categoryId, published, title } = article;
 
   const category = categories.find((cat) => cat.id === categoryId);
 
+  function handleDelete(e) {
+    e.stopPropagation();
+    deleteArticle(article.id);
+  }
+
   function handleClick() {
-    updateSelected(id);
+    updateSelected(article.id);
   }
 
   return (
@@ -22,6 +33,7 @@ function Article(props) {
       <div>{category ? category.title : categoryId}</div>
       <div>{published ? "Published" : "Draft"}</div>
       <Link to={"/article/" + article.id}>Edit</Link>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }

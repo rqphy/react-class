@@ -33,3 +33,8 @@ export function updateArticle(article) {
     }),
   }).then((res) => res.json());
 }
+
+export function deleteArticle(id) {
+  console.log("article deleted", id);
+  return fetch(`http://localhost:3001/articles/${id}`, { method: "DELETE" });
+}

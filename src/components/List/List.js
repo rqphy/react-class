@@ -2,7 +2,7 @@ import { useState } from "react";
 import Article from "../Article/Article";
 
 function List(props) {
-  const { articles, categories } = props;
+  const { articles, categories, deleteArticle } = props;
   const [selectedArticles, setSelectedArticles] = useState({});
 
   function updateSelected(id) {
@@ -20,6 +20,7 @@ function List(props) {
           key={art.id}
           selected={Boolean(selectedArticles[art.id])}
           updateSelected={updateSelected}
+          deleteArticle={deleteArticle}
         />
       ))}
     </div>
