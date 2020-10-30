@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import List from "../List/List";
 import Resize from "../Resize/Resize";
 import Title from "../Title/Title";
@@ -47,6 +49,7 @@ function ArticlesPage() {
   return (
     <div>
       <Title title={title} />
+      <Link to="/article">Add new article</Link>
       <button onClick={handleClick}>Change title</button>
       <Resize />
       <Container>
