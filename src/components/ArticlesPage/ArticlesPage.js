@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { deleteArticle, getArticles } from "../../services/articles/articles";
+import { deleteArticle } from "../../services/articles/articles";
 
 import List from "../List/List";
 import Resize from "../Resize/Resize";

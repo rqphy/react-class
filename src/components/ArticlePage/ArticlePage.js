@@ -8,7 +8,6 @@ import {
   getArticle,
   updateArticle,
 } from "../../services/articles/articles";
-// import useCategories from "../../hooks/useCategories/useCategories";
 
 import Title from "../Title/Title";
 
@@ -20,7 +19,6 @@ function ArticlePage(props) {
     title: "",
   });
   const history = useHistory();
-  // const categories = useCategories();
   const categories = useContext(categoriesContext);
 
   useEffect(() => {
