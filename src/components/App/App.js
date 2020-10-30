@@ -7,6 +7,7 @@ function App() {
     <BrowserRouter>
       <Route exact path="/" component={ArticlesPage} />
       <Route exact path="/article" component={ArticlePage} />
+      <Route exact path="/article/:id" component={ArticlePage} />
     </BrowserRouter>
   );
 }
