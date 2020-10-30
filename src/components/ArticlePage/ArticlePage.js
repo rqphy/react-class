@@ -44,7 +44,7 @@ function ArticlePage(props) {
 
   return (
     <div>
-      <Title title="Add new article" />
+      <Title title={id ? `Edit article ${id}` : "Add article"} />
       <form onSubmit={handleSubmit}>
         <div>
           <label>
