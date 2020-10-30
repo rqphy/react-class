@@ -2,7 +2,7 @@ import { useState } from "react";
 import Article from "../Article/Article";
 
 function List(props) {
-  const { articles, categories, deleteArticle } = props;
+  const { articles, deleteArticle } = props;
   const [selectedArticles, setSelectedArticles] = useState({});
 
   function updateSelected(id) {
@@ -16,7 +16,6 @@ function List(props) {
       {articles.map((art) => (
         <Article
           article={art}
-          categories={categories}
           key={art.id}
           selected={Boolean(selectedArticles[art.id])}
           updateSelected={updateSelected}

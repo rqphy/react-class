@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
+
+import categoriesContext from "../../contexts/categories";
 
 import {
   createArticle,
   getArticle,
   updateArticle,
 } from "../../services/articles/articles";
-import useCategories from "../../hooks/useCategories/useCategories";
+// import useCategories from "../../hooks/useCategories/useCategories";
 
 import Title from "../Title/Title";
 
@@ -18,7 +20,8 @@ function ArticlePage(props) {
     title: "",
   });
   const history = useHistory();
-  const categories = useCategories();
+  // const categories = useCategories();
+  const categories = useContext(categoriesContext);
 
   useEffect(() => {
     if (id) {

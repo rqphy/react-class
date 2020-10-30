@@ -1,16 +1,15 @@
 import classnames from "classnames";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import categoriesContext from "../../contexts/categories";
 
 import "./Article.css";
 
 function Article(props) {
-  const {
-    article,
-    categories,
-    updateSelected,
-    selected,
-    deleteArticle,
-  } = props;
+  const { article, updateSelected, selected, deleteArticle } = props;
+
+  const categories = useContext(categoriesContext);
   const { category: categoryId, published, title } = article;
 
   const category = categories.find((cat) => cat.id === categoryId);

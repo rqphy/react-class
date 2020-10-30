@@ -1,9 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
+
+import categoriesContext from "../../contexts/categories";
+
 
 function Filters(props) {
-  const { categories, category, title, handleFilterChange, published } = props;
+  const { category, title, handleFilterChange, published } = props;
   const inputRef = useRef(null);
-  console.log(inputRef.current);
+
+  const categories = useContext(categoriesContext);
 
   useEffect(() => {
     inputRef.current.focus();
