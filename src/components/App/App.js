@@ -8,6 +8,7 @@ import ArticlesPage from "../ArticlesPage/ArticlesPage";
 import ArticlePage from "../ArticlePage/ArticlePage";
 import Cart from "../Cart/Cart";
 import Header from "../Header/Header";
+import TicTacToe from "../TicTacToe/TicTacToe";
 
 function App() {
   const categories = useCategories();
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/article" component={ArticlePage} />
           <Route exact path="/article/:id" component={ArticlePage} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/tic" component={TicTacToe} />
           <Route component={() => "Error 404"} />
           <Redirect to="/" />
         </Switch>
