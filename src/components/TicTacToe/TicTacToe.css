@@ -1,0 +1,10 @@
+.tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+}
+
+.tic-tac-toe__cell {
+  height: 100px;
+  width: 100px;
+}
